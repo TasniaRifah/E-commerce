@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
@@ -37,5 +38,9 @@ Route::get('/account', function () {
 Route::get('/cart', function () {
     return view('cart');
 });
+
+Route::get('/admin_products', '\App\Http\Controllers\ProductController@addProduct');
+
 Route::resource('products', ProductController::class);
 Route::resource('users', UserController::class);
+Route::resource('categories', CategoryController::class);
